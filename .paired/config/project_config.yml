@@ -1,0 +1,26 @@
+# PAIRED Project Configuration
+project:
+  name: "PAIRED_2.0"
+  type: "development"
+  initialized: "Wed Aug 13 20:24:38 PDT 2025"
+  paired_version: "2.0.0-alpha"
+
+# Agent Configuration
+agents:
+  active:
+    - pm_agent
+    - qa_agent
+    - dev_agent
+  
+# Knowledge Sync Configuration
+knowledge_sync:
+  enabled: true
+  frequency: "daily"
+  auto_contribute: true
+  privacy_level: "anonymized"
+
+# Global Integration
+global_integration:
+  registry_sync: true
+  pattern_sharing: true
+  learning_contribution: true

@@ -1,0 +1,51 @@
+---
+description: PAIRED Project Configuration
+globs: **/*
+alwaysApply: true
+---
+
+# Project-Specific PAIRED Configuration
+# Inherits from global ~/.pairedrules with project-specific overrides
+
+## Project Information
+- **Name**: PAIRED_2.0
+- **Type**: Development Project  
+- **PAIRED Version**: 2.0.0-alpha
+- **Initialized**: Wed Aug 13 20:24:38 PDT 2025
+- **Architecture**: Local Execution + Global Knowledge
+
+## Local Configuration
+# Project-specific rules that override global defaults
+
+## Active Agents
+# All agents enabled for comprehensive software development support
+active_agents:
+  - pm_agent           # Project management and coordination (Alex)
+  - qa_agent           # Quality assurance and testing (Sherlock)
+  - dev_agent          # Development assistance and debugging (Edison)
+  - architecture_agent # System architecture and design (Leonardo)
+  - ux_expert_agent    # User experience and design (Maya)
+  - analyst_agent      # Data analysis and insights (Marie)
+  - scrum_master_agent # Agile process and team coordination (Vince)
+
+## Knowledge Management
+# How this project participates in global knowledge sharing
+knowledge_sync:
+  auto_sync: true                    # Automatically sync with global
+  sync_frequency: "daily"            # How often to sync
+  contribute_to_global: true         # Share learnings globally
+  privacy_level: "anonymized"        # Level of data sharing
+
+## Development Workflow
+# Project-specific development preferences
+workflow:
+  auto_handoff: true                 # Automatic session handoffs
+  quality_gates: true                # Enable quality checks
+  pattern_detection: true            # Learn from code patterns
+  
+## Integration Points
+# How this project integrates with global PAIRED
+global_integration:
+  registry_tracking: true            # Track in global registry
+  pattern_sharing: true              # Share successful patterns
+  cross_project_learning: true       # Learn from other projects

@@ -1,0 +1,126 @@
+# PAIRED Deployment Configuration Template
+# This file defines deployment targets and configurations for different environments
+
+deployment_environments:
+  development:
+    name: "Development"
+    repository: "https://github.com/SEMalytics/paired-dev.git"
+    branch: "main"
+    description: "Active development branch for PAIRED platform"
+    auto_deploy: true
+    include_dev_docs: true
+    include_test_files: true
+    
+  production:
+    name: "Production"
+    repository: "https://github.com/internexio/paired.git"
+    branch: "main"
+    description: "Production-ready PAIRED for enterprise deployment"
+    auto_deploy: false  # Require manual confirmation for production
+    include_dev_docs: false
+    include_test_files: false
+    
+  public:
+    name: "Public Release"
+    repository: "https://github.com/SEMalytics/paired.git"
+    branch: "main"
+    description: "Public release of PAIRED platform"
+    auto_deploy: false
+    include_dev_docs: false
+    include_test_files: false
+    sanitize_sensitive_data: true
+
+# File inclusion rules for different deployment types
+file_rules:
+  essential_core:
+    - "README.md"
+    - "LICENSE"
+    - "install.sh"
+    - "bin/paired"
+    - "src/**/*.js"
+    - "templates/**/*"
+    
+  development_extras:
+    - "docs/development/**/*"
+    - "test/**/*"
+    - "scripts/dev-*"
+    - "planning/**/*"
+    
+  production_essentials:
+    - "docs/user-guide/**/*"
+    - "docs/installation/**/*"
+    - "docs/DEPLOYMENT_GUIDE.md"
+    - "docs/COMMANDS.md"
+    - "docs/QUICK_START.md"
+    - "docs/PROJECT_KNOWLEDGE_GUIDE.md"
+    - "docs/PROJECT_KNOWLEDGE_QUICKSTART.md"
+    - "docs/PHILOSOPHY.md"
+    - "docs/README.md"
+    - "scripts/deploy-*"
+    - "scripts/paired-doctor.sh"
+    
+  strategic_exclusions:
+    # Strategic planning and competitive intelligence (NEVER include in public releases)
+    - "planning/**/*"
+    - "CURRENT_PLAN.md"
+    - "CURRENT_SESSION_HANDOFF.md"
+    - "PROJECT_HANDOFF_*.md"
+    - "MILESTONE_HANDOFF_*.md"
+    - "**/ROADMAP.md"
+    - "**/roadmap.md"
+    - "archive/experimental-docs/**/*"
+    - "archive/legacy-docs/**/*"
+    - "CRITICAL_*"
+    - "PAIRED_*"
+    - "DEBUGGING_*"
+    - "*_ANALYSIS.md"
+    - "COLLABORATOR_*"
+    - "*HANDOFF*"
+    - "**/*key*"
+    - "**/*KEY*"
+    - "**/*secret*"
+    - "**/*SECRET*"
+    - "**/*token*"
+    - "**/*TOKEN*"
+    - "**/*password*"
+    - "**/*PASSWORD*"
+    - "**/.env*"
+    - "**/config/secrets*"
+    - "**/credentials*"
+
+# Security and sanitization rules
+sanitization:
+  remove_patterns:
+    - "# TODO:"
+    - "# FIXME:"
+    - "# DEBUG:"
+    - "console.log"
+    - "debugger;"
+  
+  replace_patterns:
+    - pattern: "/Users/davidpedersen"
+      replacement: "$HOME"
+    - pattern: "hardcoded-api-key-123"
+      replacement: "${API_KEY}"
+
+# Version and release information
+release:
+  version_format: "YYYY.MM.DD"
+  changelog_required: true
+  tag_format: "v{version}"
+  
+# Notification settings
+notifications:
+  slack_webhook: "${SLACK_WEBHOOK_URL}"
+  email_recipients:
+    - "team@paired.dev"
+  
+# Validation requirements
+validation:
+  required_tests:
+    - "npm test"
+    - "scripts/validate-agents.sh"
+  
+  required_checks:
+    - "paired-doctor"
+    - "installation-test"

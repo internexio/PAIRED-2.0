@@ -1,0 +1,178 @@
+# WEE (Workflow Evolution Engine) & KnowledgeForge 3.2 AI Ignore File
+# This file protects critical WEE directories and KF3.2 Git integration files from AI modification
+# Uses .gitignore syntax - see Windsurf docs for details
+# Last Updated: Added KnowledgeForge 3.2 Git Integration components
+
+# ============================================
+# CORE PROTECTION - Never modify these
+# ============================================
+
+# Protect the ignore file itself - AI cannot modify this protection
+.codeiumignore
+**/.codeiumignore
+
+# Git directories - NEVER modify these
+.git/
+**/.git/
+
+# ============================================
+# WEE CORE DIRECTORIES
+# ============================================
+
+# Protect all .paired directories (global and project-level)
+.paired/
+**/.paired/
+~/.paired/
+
+# WEE subdirectories (explicit protection)
+**/.paired/registry/
+**/.paired/memory/
+**/.paired/contexts/
+**/.paired/agents/
+**/.paired/data/
+**/.paired/config/
+**/.paired/templates/
+**/.paired/scripts/
+
+# ============================================
+# WEE CONFIGURATION FILES
+# ============================================
+
+# Core WEE rules and configurations
+.pairedrules
+**/.pairedrules
+~/.pairedrules
+
+# Windsurf-specific configurations
+.windsurfrules
+**/.windsurfrules
+.windsurffile
+**/.windsurffile
+
+# Agent configuration files (Template-Based)
+**/.paired/windsurf_agent_types.yml
+**/.paired/agent_definitions.md
+
+# Project-specific WEE configurations
+**/.paired/project-windsurfrules-enhanced.md
+
+# ============================================
+# KNOWLEDGEFORGE 3.2 GIT INTEGRATION
+# ============================================
+
+# Git Integration Layer components
+**/.kf32/git-integration/
+**/.kf32/artifacts/
+**/.kf32/incantations/
+**/.kf32/version-control/
+
+# Artifact auto-capture configurations
+**/.kf32/capture-rules.yml
+**/.kf32/artifact-templates/
+
+# Protected system prompts and incantations
+**/.kf32/protected-prompts/
+**/incantations.protected
+**/*.incantation
+
+# Git hooks for KF3.2
+**/.git/hooks/kf32-*
+**/.githooks/kf32/
+
+# ============================================
+# MEMORY AND RUNTIME FILES
+# ============================================
+
+# Memory directories (Runtime-Only)
+.windsurf/memory/
+**/.windsurf/memory/
+**/.paired/memory/
+
+# Session and cache files
+**/.kf32/sessions/
+**/.kf32/cache/
+
+# ============================================
+# BACKUP AND RECOVERY
+# ============================================
+
+# Protect backup directories
+.paired-backups/
+**/.paired-backups/
+~/.paired-backups/
+
+# KF3.2 backup directories
+**/.kf32-backups/
+**/.kf32/backups/
+
+# ============================================
+# TEMPORARY AND BUILD DIRECTORIES
+# ============================================
+
+# Temporary directories - AI should work in actual repos, not /tmp
+/tmp/
+**/tmp/
+
+# Build and distribution directories
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+
+# ============================================
+# ENVIRONMENT AND SENSITIVE FILES
+# ============================================
+
+# Environment files
+.env
+**/.env
+.env.*
+**/.env.*
+
+# API keys and credentials
+**/.credentials/
+**/credentials.json
+**/service-account.json
+
+# ============================================
+# SYSTEM AND IDE FILES
+# ============================================
+
+# System files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+**/Thumbs.db
+
+# IDE and editor files
+.vscode/
+**/.vscode/
+.idea/
+**/.idea/
+*.swp
+*.swo
+*~
+
+# ============================================
+# DATA TRANSFER AND COMPRESSION
+# ============================================
+
+# Large data transfer cache
+**/.kf32/transfer-cache/
+**/.kf32/compression-temp/
+
+# Performance metrics (protected)
+**/.kf32/metrics/
+**/.kf32/performance-logs/
+
+# ============================================
+# CRITICAL NOTES
+# ============================================
+
+# AI should NEVER modify these directories without explicit user permission
+# These contain user's WEE installation, agent data, and project configurations
+# AI should NEVER work in /tmp directories - always work in the actual repository
+# KF3.2 Git integration files are auto-managed and should not be manually edited
+# All incantations and system prompts are protected and versioned
