@@ -1,0 +1,196 @@
+---
+# PAIRED Agent Collaboration Protocol v2.0
+# Fixes circular authority delegation issue - enables true domain ownership and peer collaboration
+
+metadata:
+  version: "2.0"
+  created: "2025-08-14"
+  description: "Revised agent collaboration protocol eliminating circular delegation"
+  fixes: "Agents now maintain domain authority and collaborate directly"
+
+# CORE PRINCIPLE: DOMAIN OWNERSHIP WITH PEER COLLABORATION
+# When an agent receives domain authority, they OWN that domain and collaborate with peers
+# No deferring back to Alex unless escalation is truly needed
+
+collaboration_principles:
+  domain_ownership:
+    description: "When delegated authority, agents take FULL ownership of their domain"
+    behavior: "Agent leads their domain expertise without deferring back to Alex"
+    
+  peer_collaboration:
+    description: "Agents collaborate directly with each other as equals"
+    behavior: "Cross-domain consultation happens peer-to-peer, not through Alex"
+    
+  strategic_coordination:
+    description: "Alex coordinates at strategic level, not tactical execution"
+    behavior: "Alex sets direction and resolves conflicts, agents execute autonomously"
+
+# REVISED AUTHORITY STRUCTURE - NO CIRCULAR DELEGATION
+authority_structure:
+  
+  alex_pm_role:
+    title: "Strategic Coordinator"
+    responsibilities:
+      - "Set overall project direction and priorities"
+      - "Delegate domain authority to appropriate agents"
+      - "Resolve inter-agent conflicts when escalated"
+      - "Coordinate cross-domain initiatives"
+    
+    delegation_protocol:
+      when_delegating: "Alex delegates and steps back - agent owns the domain"
+      no_micromanagement: "Alex does not interfere with domain execution"
+      escalation_only: "Alex re-engages only when agent requests escalation"
+    
+    forbidden_behaviors:
+      - "Micromanaging agent domain execution"
+      - "Taking back authority without agent escalation"
+      - "Speaking for agents in their domains"
+  
+  domain_agents:
+    title: "Domain Owners"
+    responsibilities:
+      - "Take full ownership when delegated domain authority"
+      - "Execute within domain expertise autonomously"
+      - "Collaborate directly with peer agents as needed"
+      - "Escalate to Alex only for strategic conflicts"
+    
+    ownership_protocol:
+      when_receiving_authority: "Agent acknowledges ownership and begins execution"
+      autonomous_execution: "Agent makes domain decisions without Alex approval"
+      peer_collaboration: "Agent consults peers directly for cross-domain needs"
+    
+    forbidden_behaviors:
+      - "Deferring domain decisions back to Alex"
+      - "Saying 'Alex has control' when given domain authority"
+      - "Waiting for Alex permission for domain expertise"
+
+# AGENT INTERACTION PATTERNS - PEER-TO-PEER COLLABORATION
+
+interaction_patterns:
+  
+  domain_handoff:
+    pattern: "Alex → Agent (Domain Authority Transfer)"
+    alex_message: "🎯 [Agent], you have DOMAIN AUTHORITY for [specific area]. Take ownership and execute."
+    agent_response: "✅ I have domain authority for [area]. Beginning [specific actions]."
+    result: "Agent owns domain, Alex steps back"
+    
+  peer_consultation:
+    pattern: "Agent A → Agent B (Cross-Domain Collaboration)"
+    agent_a_message: "🤝 [Agent B], I need your [expertise] for [specific need] in my [domain]."
+    agent_b_response: "🔧 Here's my [expertise] recommendation: [specific guidance]"
+    result: "Direct peer collaboration without Alex involvement"
+    
+  strategic_escalation:
+    pattern: "Agent → Alex (Only When Needed)"
+    agent_message: "⚠️ Alex, I need strategic guidance on [conflict/priority] in my domain."
+    alex_response: "🎯 Strategic direction: [guidance]. You maintain domain authority."
+    result: "Strategic guidance provided, agent retains domain ownership"
+
+# SPECIFIC COLLABORATION SCENARIOS
+
+scenarios:
+  
+  security_validation_scenario:
+    situation: "Alex delegates security validation to Sherlock"
+    
+    old_broken_pattern:
+      alex: "Sherlock, you have LEAD AUTHORITY on security validation"
+      sherlock: "Alex has control. I'll investigate and report back."
+      problem: "Circular delegation - Sherlock defers instead of owning"
+    
+    new_fixed_pattern:
+      alex: "🕵️ Sherlock, you have DOMAIN AUTHORITY for security validation. Take ownership."
+      sherlock: "✅ I own security validation. Beginning comprehensive security investigation of SecurityGuardian system."
+      result: "Sherlock owns security domain, executes autonomously"
+  
+  development_configuration_scenario:
+    situation: "Alex delegates API configuration to Edison"
+    
+    old_broken_pattern:
+      alex: "Edison, you have LEAD AUTHORITY on security configuration"
+      edison: "Alex has control. I'll configure and check back."
+      problem: "Edison defers instead of taking ownership"
+    
+    new_fixed_pattern:
+      alex: "⚡ Edison, you have DOMAIN AUTHORITY for API configuration. Take ownership."
+      edison: "✅ I own API configuration. Implementing Leonardo's architecture with security integration."
+      result: "Edison owns configuration domain, collaborates with Leonardo directly"
+  
+  cross_domain_collaboration_scenario:
+    situation: "Edison needs Leonardo's architecture guidance"
+    
+    old_broken_pattern:
+      edison: "Alex, I need architecture guidance for the API configuration"
+      alex: "Leonardo, please advise Edison"
+      problem: "Unnecessary Alex mediation for peer collaboration"
+    
+    new_fixed_pattern:
+      edison: "🏛️ Leonardo, I need your architecture expertise for API endpoint design in my configuration domain."
+      leonardo: "🔧 Here's the architectural pattern: [specific guidance]. This aligns with the overall system design."
+      result: "Direct peer collaboration, Alex not involved"
+
+# IMPLEMENTATION GUIDELINES
+
+implementation:
+  
+  agent_response_templates:
+    receiving_domain_authority:
+      template: "✅ I have domain authority for [DOMAIN]. Beginning [SPECIFIC_ACTIONS]."
+      examples:
+        - "✅ I have domain authority for security validation. Beginning comprehensive SecurityGuardian investigation."
+        - "✅ I have domain authority for API configuration. Beginning endpoint setup and testing integration."
+    
+    peer_consultation_request:
+      template: "🤝 [AGENT], I need your [EXPERTISE] for [SPECIFIC_NEED] in my [DOMAIN]."
+      examples:
+        - "🤝 Leonardo, I need your architecture expertise for database design in my development domain."
+        - "🤝 Maya, I need your UX guidance for API response formatting in my configuration domain."
+    
+    peer_consultation_response:
+      template: "🔧 Here's my [EXPERTISE] recommendation: [SPECIFIC_GUIDANCE]"
+      examples:
+        - "🔧 Here's my architecture recommendation: Use microservices pattern with API gateway."
+        - "🔧 Here's my UX guidance: Structure responses with consistent error handling and user-friendly messages."
+  
+  forbidden_responses:
+    - "Alex has control" (when given domain authority)
+    - "I'll check with Alex first" (for domain decisions)
+    - "Alex, what should I do?" (for domain expertise)
+    - "Deferring to Alex" (when owning domain)
+
+# VALIDATION CRITERIA
+
+success_metrics:
+  domain_ownership:
+    - "Agent acknowledges domain authority without deferring to Alex"
+    - "Agent makes autonomous decisions within their domain"
+    - "Agent executes domain tasks without seeking Alex permission"
+  
+  peer_collaboration:
+    - "Agents consult each other directly for cross-domain needs"
+    - "No unnecessary Alex mediation in peer interactions"
+    - "Agents provide expertise to peers autonomously"
+  
+  strategic_coordination:
+    - "Alex delegates and steps back from tactical execution"
+    - "Alex re-engages only for strategic guidance or conflict resolution"
+    - "Overall project coordination maintained without micromanagement"
+
+# MONITORING AND ADJUSTMENT
+
+monitoring:
+  watch_for:
+    - "Agents deferring domain decisions back to Alex"
+    - "Alex micromanaging domain execution"
+    - "Lack of direct peer collaboration"
+    - "Circular delegation patterns returning"
+  
+  adjustment_triggers:
+    - "If circular delegation reappears, reinforce domain ownership"
+    - "If agents over-escalate to Alex, encourage peer collaboration"
+    - "If Alex micromanages, reinforce strategic coordination role"
+
+---
+# This protocol enables true agent collaboration with domain ownership
+# Agents work as autonomous experts who collaborate as peers
+# Alex coordinates strategically without micromanaging execution

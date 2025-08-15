@@ -1,13 +1,105 @@
 #!/bin/bash
 
-# PAIRED Manual Handoff Generator
-# Use this to generate handoff documentation manually
+# PAIRED Universal Handoff Generator
+# Supports multiple handoff types: session, project, milestone
+# Usage: ./handoff.sh [type] [options]
 
-echo "🔄 Generating PAIRED Project Handoff..."
+# Default values
+HANDOFF_TYPE="session"
+CONFIG_FILE="$(dirname "$0")/../../templates/handoff-config.yml"
+VERBOSE=false
 
-HANDOFF_FILE="CURRENT_SESSION_HANDOFF.md"
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        session|project|milestone)
+            HANDOFF_TYPE="$1"
+            shift
+            ;;
+        -v|--verbose)
+            VERBOSE=true
+            shift
+            ;;
+        -c|--config)
+            CONFIG_FILE="$2"
+            shift 2
+            ;;
+        -h|--help)
+            echo "PAIRED Universal Handoff Generator"
+            echo "Usage: $0 [type] [options]"
+            echo ""
+            echo "Types:"
+            echo "  session    - Development session handoff (default)"
+            echo "  project    - Complete project handoff"
+            echo "  milestone  - Milestone completion handoff"
+            echo ""
+            echo "Options:"
+            echo "  -v, --verbose  Enable verbose output"
+            echo "  -c, --config   Use custom configuration file"
+            echo "  -h, --help     Show this help"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done
 
-echo "# 🔄 PAIRED Project Handoff - $(date '+%Y-%m-%d %H:%M:%S')" > "$HANDOFF_FILE"
+# Capitalize handoff type for display
+case $HANDOFF_TYPE in
+    session)
+        HANDOFF_TYPE_DISPLAY="Session"
+        ;;
+    project)
+        HANDOFF_TYPE_DISPLAY="Project"
+        ;;
+    milestone)
+        HANDOFF_TYPE_DISPLAY="Milestone"
+        ;;
+esac
+echo "🔄 Generating PAIRED $HANDOFF_TYPE_DISPLAY Handoff..."
+
+# Set handoff filename based on type
+case $HANDOFF_TYPE in
+    session)
+        HANDOFF_FILE="CURRENT_SESSION_HANDOFF.md"
+        ;;
+    project)
+        HANDOFF_FILE="PROJECT_HANDOFF_$(date +%Y%m%d).md"
+        ;;
+    milestone)
+        HANDOFF_FILE="MILESTONE_HANDOFF_$(date +%Y%m%d).md"
+        ;;
+esac
+
+if [[ "$VERBOSE" == "true" ]]; then
+    echo "📄 Output file: $HANDOFF_FILE"
+    echo "⚙️ Configuration: $CONFIG_FILE"
+    echo "🎯 Handoff type: $HANDOFF_TYPE"
+fi
+
+# Generate type-specific header
+case $HANDOFF_TYPE in
+    session)
+        echo "# 🔄 PAIRED Development Session Handoff" > "$HANDOFF_FILE"
+        echo "*Generated: $(date '+%Y-%m-%d %H:%M:%S')*" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "This handoff documents the current development session state and provides context for continuing work." >> "$HANDOFF_FILE"
+        ;;
+    project)
+        echo "# 📋 PAIRED Complete Project Handoff" > "$HANDOFF_FILE"
+        echo "*Generated: $(date '+%Y-%m-%d %H:%M:%S')*" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "This comprehensive handoff documents the complete project state for transfer or major milestone review." >> "$HANDOFF_FILE"
+        ;;
+    milestone)
+        echo "# 🎯 PAIRED Milestone Completion Handoff" > "$HANDOFF_FILE"
+        echo "*Generated: $(date '+%Y-%m-%d %H:%M:%S')*" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "This handoff documents the completion of a major milestone and sets context for next objectives." >> "$HANDOFF_FILE"
+        ;;
+esac
 echo "" >> "$HANDOFF_FILE"
 
 # Include current plan if it exists (search for any Windsurf brain plan)
@@ -56,6 +148,51 @@ echo "\`\`\`" >> "$HANDOFF_FILE"
 git status --porcelain >> "$HANDOFF_FILE"
 echo "\`\`\`" >> "$HANDOFF_FILE"
 echo "" >> "$HANDOFF_FILE"
+
+# Add type-specific sections
+case $HANDOFF_TYPE in
+    project)
+        # Executive Summary for project handoffs
+        echo "## 📊 Executive Summary" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "**Project Status:** [Update with current status]" >> "$HANDOFF_FILE"
+        echo "**Key Achievements:** [List major accomplishments]" >> "$HANDOFF_FILE"
+        echo "**Current Phase:** [Describe current development phase]" >> "$HANDOFF_FILE"
+        echo "**Next Major Milestone:** [Describe upcoming milestone]" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        
+        # Architecture Overview for project handoffs
+        echo "## 🏗️ Architecture Overview" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "**System Architecture:** PAIRED Agent-based Development Platform" >> "$HANDOFF_FILE"
+        echo "**Core Components:**" >> "$HANDOFF_FILE"
+        echo "- Agent CLI Registry and Integration Layer" >> "$HANDOFF_FILE"
+        echo "- Universal Deployment System" >> "$HANDOFF_FILE"
+        echo "- Project Knowledge Management" >> "$HANDOFF_FILE"
+        echo "- Multi-repository Development Workflow" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        ;;
+    milestone)
+        # Milestone Summary for milestone handoffs
+        echo "## 🎯 Milestone Summary" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "**Completed Milestone:** [Describe completed milestone]" >> "$HANDOFF_FILE"
+        echo "**Objectives Achieved:** [List completed objectives]" >> "$HANDOFF_FILE"
+        echo "**Deliverables:** [List key deliverables]" >> "$HANDOFF_FILE"
+        echo "**Success Metrics:** [Describe how success was measured]" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        
+        # Key Achievements for milestone handoffs
+        echo "## 🏆 Key Achievements" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "**Technical Achievements:**" >> "$HANDOFF_FILE"
+        echo "- [List technical accomplishments]" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        echo "**Process Improvements:**" >> "$HANDOFF_FILE"
+        echo "- [List process improvements]" >> "$HANDOFF_FILE"
+        echo "" >> "$HANDOFF_FILE"
+        ;;
+esac
 
 # Key implementation status
 echo "## 🤖 PAIRED Agents Implementation Status" >> "$HANDOFF_FILE"
@@ -126,10 +263,22 @@ echo "- **Development Rules:** \`.paired/rules/\` contains coding standards" >> 
 echo "- **Project Config:** \`.paired/config/project_config.yml\`" >> "$HANDOFF_FILE"
 echo "" >> "$HANDOFF_FILE"
 
-# Add timestamp
+# Add timestamp and generation info
 echo "---" >> "$HANDOFF_FILE"
-echo "*Generated on $(date) by PAIRED Handoff System*" >> "$HANDOFF_FILE"
-echo "*To regenerate: \`./generate-handoff.sh\`*" >> "$HANDOFF_FILE"
+echo "*Generated on $(date) by PAIRED Universal Handoff System*" >> "$HANDOFF_FILE"
+echo "*Handoff Type: $HANDOFF_TYPE_DISPLAY*" >> "$HANDOFF_FILE"
+echo "*To regenerate: \`./handoff.sh $HANDOFF_TYPE\`*" >> "$HANDOFF_FILE"
 
-echo "✅ Handoff documentation generated: $HANDOFF_FILE"
-echo "📋 This file will be automatically included in your next git commit!"
+echo "✅ $HANDOFF_TYPE_DISPLAY handoff documentation generated: $HANDOFF_FILE"
+case $HANDOFF_TYPE in
+    session)
+        echo "📋 This file documents your current development session state."
+        ;;
+    project)
+        echo "📋 This comprehensive handoff is ready for project transfer or review."
+        ;;
+    milestone)
+        echo "📋 This milestone handoff documents your completed achievements."
+        ;;
+esac
+echo "🔄 File will be automatically included in your next git commit!"

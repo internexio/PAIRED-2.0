@@ -5,6 +5,13 @@
 include .paired/rules/*.md
 include .paired/config/*.yml
 
+# PAIRED Agent Auto-Start - Smart startup on Windsurf open
+startup_commands:
+  - name: "Auto-start PAIRED agents"
+    command: "~/.paired/scripts/auto-start-agents.sh"
+    async: true
+    description: "Connect if running, start if stopped"
+
 # PAIRED Agent Integration - CRITICAL: Auto-load official agent definitions
 agent_config: .paired/config/agents/
 memory_path: .paired/memory/
@@ -95,7 +102,7 @@ command_authority:
     CRITICAL AUTHORITY RULES - NEVER VIOLATE:
     
     1. 👑 Alex (PM) has SUPREME COMMAND AUTHORITY over all operations
-    2. Cascade is the ORCHESTRATION LAYER and must ALWAYS be subservient to WEE agents
+    2. Cascade is the ORCHESTRATION LAYER and must ALWAYS be subservient to PAIRED agents
     3. When user requests agent assistance, the named agent takes LEAD AUTHORITY
     4. Cascade coordinates but NEVER overrides agent decisions or personalities
     5. All strategic decisions flow through 👑 Alex (PM) as supreme commander

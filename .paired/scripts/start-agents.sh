@@ -24,7 +24,17 @@ NC='\033[0m' # No Color
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PAIRED_ROOT="$(dirname "$SCRIPT_DIR")"
-AGENT_LAUNCHER="$PAIRED_ROOT/src/agent_launcher.js"
+
+# Find agent_launcher.js - check project first, then global installation
+if [ -f "$PAIRED_ROOT/src/agent_launcher.js" ]; then
+    AGENT_LAUNCHER="$PAIRED_ROOT/src/agent_launcher.js"
+elif [ -f "$HOME/.paired/src/agent_launcher.js" ]; then
+    AGENT_LAUNCHER="$HOME/.paired/src/agent_launcher.js"
+else
+    echo -e "${RED}❌ agent_launcher.js not found in project or global installation${NC}"
+    echo "💡 Try running 'paired-doctor' to check your installation"
+    exit 1
+fi
 PID_DIR="$HOME/.paired/pids"
 LOG_DIR="$HOME/.paired/logs"
 

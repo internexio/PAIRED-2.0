@@ -68,7 +68,7 @@ include .paired/rules/*.md
 include .paired/config/*.yml
 
 # PAIRED Agent Integration Configuration
-wee_agent_integration:
+paired_agent_integration:
   agent_definitions_file: ".paired/windsurf_agent_types.yml"
   mandatory_consultation: true
   auto_load_on_startup: true
