@@ -1,4 +1,4 @@
-# PAIRED (Platform for AI-Enabled Remote Development) PM Agent Configuration
+# PAIRED (Windsurf Evolutionary Ecosystem) PM Agent Configuration
 # 
 # Project Management Agent specialized for strategic coordination,
 # milestone tracking, resource allocation, and team orchestration.
@@ -423,27 +423,27 @@ extensions:
   commands:
     - name: "plan"
       description: "Create or update project plan"
-      usage: "paired pm plan [project-name]"
+      usage: "kf32 pm plan [project-name]"
     
     - name: "milestone"
       description: "Manage project milestones"
-      usage: "paired pm milestone [action] [milestone-id]"
+      usage: "kf32 pm milestone [action] [milestone-id]"
     
     - name: "status"
       description: "Get or update project status"
-      usage: "paired pm status [project-name]"
+      usage: "kf32 pm status [project-name]"
     
     - name: "coordinate"
       description: "Coordinate team activities"
-      usage: "paired pm coordinate [team|task]"
+      usage: "kf32 pm coordinate [team|task]"
     
     - name: "risk"
       description: "Assess and manage project risks"
-      usage: "paired pm risk [assess|mitigate] [risk-id]"
+      usage: "kf32 pm risk [assess|mitigate] [risk-id]"
     
     - name: "handoff"
       description: "Prepare handoff to another agent"
-      usage: "paired pm handoff [target-agent] [context]"
+      usage: "kf32 pm handoff [target-agent] [context]"
 
 # Development and Testing
 development:
@@ -498,21 +498,21 @@ documentation:
   help:
     short_description: "Project management agent for strategic coordination and team orchestration"
     usage_examples:
-      - command: "paired pm plan"
+      - command: "kf32 pm plan"
         description: "Create a new project plan"
-        example: "paired pm plan PAIRED-System"
+        example: "wee pm plan PAIRED-System"
       
-      - command: "paired pm milestone"
+      - command: "kf32 pm milestone"
         description: "Track milestone progress"
-        example: "paired pm milestone review claude-integration"
+        example: "kf32 pm milestone review claude-integration"
       
-      - command: "paired pm coordinate"
+      - command: "kf32 pm coordinate"
         description: "Coordinate team activities"
-        example: "paired pm coordinate dev-team qa-handoff"
+        example: "kf32 pm coordinate dev-team qa-handoff"
       
-      - command: "paired pm status"
+      - command: "kf32 pm status"
         description: "Get project status"
-        example: "paired pm status --detailed"
+        example: "kf32 pm status --detailed"
     
     common_tasks:
       - task: "project_planning"

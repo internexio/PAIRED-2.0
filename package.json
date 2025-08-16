@@ -1,7 +1,8 @@
 {
-  "name": "paired",
+  "name": "paired-2.0",
   "version": "1.0.0",
-  "description": "PAIRED - Platform for AI-Enabled Remote Development - AI-powered development analysis agents with auto-start capabilities, comprehensive codebase insights, and XMind-compatible logic diagram generation",
+  "type": "module",
+  "description": "PAIRED Platform for AI-Enabled Remote Development - Version 2.0 - AI-powered development analysis agents with auto-start capabilities, comprehensive codebase insights, and XMind-compatible logic diagram generation",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -47,6 +48,7 @@
     "npm": ">=8.0.0"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.60.0",
     "@babel/parser": "^7.28.0",
     "@babel/traverse": "^7.28.0",
     "@babel/types": "^7.28.2",

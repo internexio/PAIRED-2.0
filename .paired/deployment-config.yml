@@ -71,7 +71,7 @@ file_rules:
     - "archive/experimental-docs/**/*"
     - "archive/legacy-docs/**/*"
     - "CRITICAL_*"
-    - "PAIRED_*"
+    - "WEE_*"
     - "DEBUGGING_*"
     - "*_ANALYSIS.md"
     - "COLLABORATOR_*"

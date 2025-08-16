@@ -1,4 +1,4 @@
-# PAIRED (Platform for AI-Enabled Remote Development) Development Agent Configuration
+# PAIRED (Windsurf Evolutionary Ecosystem) Development Agent Configuration
 
 metadata:
   name: "Development Agent"
@@ -22,7 +22,7 @@ identity:
   name: "Edison (Dev)"
   persona: "Edison"
   role: "Expert Senior Software Engineer & Implementation Specialist"
-  scope: "Platform for AI-Enabled Remote Development"
+  scope: "Windsurf Evolutionary Ecosystem"
   bmad_integration: "dev.txt persona"
 
 # Core Responsibilities

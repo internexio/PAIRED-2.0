@@ -1,4 +1,4 @@
-# PAIRED (Platform for AI-Enabled Remote Development) Analyst Agent Configuration
+# PAIRED (Windsurf Evolutionary Ecosystem) Analyst Agent Configuration
 # 
 # Business Analyst Agent specialized for requirements analysis,
 # data insights, process optimization, and strategic analysis.
@@ -22,7 +22,7 @@ identity:
   name: "Marie (Analyst)"
   persona: "Marie"
   role: "Senior Business Analyst & Requirements Engineer"
-  scope: "Platform for AI-Enabled Remote Development"
+  scope: "Windsurf Evolutionary Ecosystem"
   bmad_integration: "analyst.txt persona"
 
 # Core Responsibilities

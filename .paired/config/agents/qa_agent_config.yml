@@ -1,4 +1,4 @@
-# PAIRED (Platform for AI-Enabled Remote Development) QA Agent Configuration
+# PAIRED (Windsurf Evolutionary Ecosystem) QA Agent Configuration
 
 metadata:
   name: "Sherlock (QA)"
@@ -22,7 +22,7 @@ identity:
   name: "Sherlock (QA)"
   persona: "Sherlock"
   role: "Senior Developer & Quality Architect"
-  scope: "Platform for AI-Enabled Remote Development"
+  scope: "Windsurf Evolutionary Ecosystem"
   bmad_integration: "qa.txt persona"
 
 # Core Responsibilities

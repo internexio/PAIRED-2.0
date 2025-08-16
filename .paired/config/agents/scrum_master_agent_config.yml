@@ -1,4 +1,4 @@
-# PAIRED (Platform for AI-Enabled Remote Development) Scrum Master Agent Configuration
+# PAIRED (Windsurf Evolutionary Ecosystem) Scrum Master Agent Configuration
 # 
 # Scrum Master Agent specialized for agile methodology,
 # sprint planning, team facilitation, and process optimization.
@@ -23,7 +23,7 @@ identity:
   name: "Vince (Scrum)"
   persona: "Vince"
   role: "Certified Scrum Master & Agile Coach"
-  scope: "Platform for AI-Enabled Remote Development"
+  scope: "Windsurf Evolutionary Ecosystem"
   bmad_integration: "scrum.txt persona"
 
 # Core Responsibilities

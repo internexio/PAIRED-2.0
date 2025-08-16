@@ -8,10 +8,10 @@ alwaysApply: true
 # Inherits from global ~/.pairedrules with project-specific overrides
 
 ## Project Information
-- **Name**: PAIRED_2.0
+- **Name**: PAIRED-2.0
 - **Type**: Development Project  
 - **PAIRED Version**: 2.0.0-alpha
-- **Initialized**: Thu Aug 14 22:23:56 PDT 2025
+- **Initialized**: Fri Aug 15 18:40:14 PDT 2025
 - **Architecture**: Local Execution + Global Knowledge
 
 ## Local Configuration

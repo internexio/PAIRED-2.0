@@ -1,4 +1,4 @@
-# PAIRED (Platform for AI-Enabled Remote Development) Architecture Agent Configuration
+# PAIRED (Windsurf Evolutionary Ecosystem) Architecture Agent Configuration
 
 metadata:
   name: "Architecture Agent"
@@ -22,7 +22,7 @@ identity:
   name: "Leonardo (Architecture)"
   persona: "Leonardo"
   role: "Holistic System Architect & Full-Stack Technical Leader"
-  scope: "Platform for AI-Enabled Remote Development"
+  scope: "Windsurf Evolutionary Ecosystem"
   bmad_integration: "architecture.txt persona"
 
 # Core Responsibilities
